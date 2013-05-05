@@ -1,0 +1,29 @@
+{
+  "name": "rbkey-midi",
+  "description": "A Rock Band keyboard to MIDI bridge",
+  "keywords": [
+    "midi",
+    "controller",
+    "music",
+    "gaming"
+  ],
+  "version": "0.1.0",
+  "author": {
+    "name": "Nardi Lam",
+    "email": "me@nardilam.nl"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nardi/rbkey-midi.git"
+  },
+  "preferGlobal": true,
+  "bin": "./main.js",
+  "dependencies": {
+    "underscore": "1.4.4",
+    "node-hid": "0.2.3",
+    "midi": "0.7.0"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  }
+}
