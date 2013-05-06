@@ -95,6 +95,10 @@ module.exports = function RBKeyboard() {
     device.read(onRead);
   };
   
+  this.close = function() {
+    device.close();
+  };
+  
   this.onNoteOn =
   this.onNoteOff =
   this.onLeft =

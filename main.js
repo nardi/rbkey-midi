@@ -3,20 +3,22 @@ var RBKeyboard = require('./rbkey');
 var midi = require('midi');
 var readline = require('readline');
 
-readline.open = function() {
+var version = require('./package.json').version;
+
+readline.open = function(input, output) {
   return this.createInterface({
-    input: process.stdin,
-    output: process.stdout
+    input: input || process.stdin,
+    output: output || process.stdout
   });
 };
 
 // Lazy error handling
 process.on('uncaughtException', function(error) {
-  console.error('Error: ' + error.message);
+  console.error('Error: ' + error.message + '\n');
   process.exit();
 });
 
-console.log('Welcome to the Rock Band Keyboard to MIDI bridge version 0.1!');
+console.log('\nWelcome to the Rock Band Keyboard to MIDI bridge version ' + version + '!');
 
 var kb = new RBKeyboard();
 var octave = 0;
@@ -74,7 +76,6 @@ console.log('Available MIDI output ports:');
 for (var i = 0; i < output.getPortCount(); i++)
   console.log('\tPort ' + i + ': ' + output.getPortName(i));
 
-pickPort();
 function pickPort() {
   var rl = readline.open();
   rl.question('Which port should I send the MIDI data to? Port ', function(port) {
@@ -93,3 +94,4 @@ function pickPort() {
     kb.start();
   });
 }
+pickPort();
