@@ -78,7 +78,7 @@ module.exports = function RBKeyboard() {
                     }
                     else {
                         var curVelocities = _.chain(noteData).filter(function(v) { return v != 0; }).values();
-                        velocity = curVelocities.sum().value() / curVelocities.value().length | 0;
+                        velocity = (curVelocities.sum().value() / curVelocities.value().length) | 0;
                     }
                 }
                 noteOn ? this.call('onNoteOn', i, velocity) : this.call('onNoteOff', i, noteData[i]);
@@ -104,7 +104,7 @@ module.exports = function RBKeyboard() {
     
     this.call = function(name) {
         if (typeof this[name] === 'function') {
-            this[name].apply(this, arguments.slice(1));
+            this[name].apply(this, Array.prototype.slice.call(arguments, 1));
         }
     };
 }
