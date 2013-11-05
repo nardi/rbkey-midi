@@ -7,7 +7,7 @@
     "music",
     "gaming"
   ],
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": {
     "name": "Nardi Lam",
     "email": "me@nardilam.nl"
@@ -20,7 +20,7 @@
   "bin": "./main.js",
   "dependencies": {
     "underscore": "1.4.4",
-    "node-hid": "0.2.3",
+    "node-hid": "git://github.com/arvydas/node-hid.git#develop",
     "midi": "0.7.0"
   },
   "engines": {

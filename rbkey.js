@@ -24,6 +24,9 @@ module.exports = function RBKeyboard() {
     var dpadData = {};
     var dirs = { Left: 6, Right: 2, Up: 0, Down: 4 };
     _.each(dirs, function(v, k) { dpadData[k] = false });
+	var buttonData = {};
+    var buttons = { 1: 1, A: 2, B: 4, 2: 8 };
+    _.each(buttons, function(v, k) { buttonData[k] = false });
     var touchData = 0;
     var touchButtonData = false;
 
@@ -41,7 +44,14 @@ module.exports = function RBKeyboard() {
             }
         }, this);
 
-        // Code for 1, 2, A, B
+		var buttonsPressed = data[0];
+        _.each(buttons, function(button, name) {
+            var pressed = (buttonsPressed & button) != 0;
+            if (buttonData[name] != pressed) {
+                this.call('on' + name, pressed);
+                buttonData[name] = pressed;
+            }
+        }, this);
         
         var touch = data[15];
         if (touchData != touch) {

@@ -52,6 +52,26 @@ kb.onRight = function(press) {
         octave += octave < 4 ? 1 : 0;
 }
 
+kb.on1 = function(press) {
+    console.log((press ? 'Pressed' : 'Released') + ' the 1 button');
+    output.sendMessage([0xB0, 16, press ? 127 : 0]);
+}
+
+kb.on2 = function(press) {
+    console.log((press ? 'Pressed' : 'Released') + ' the 2 button');
+    output.sendMessage([0xB0, 17, press ? 127 : 0]);
+}
+
+kb.onA = function(press) {
+    console.log((press ? 'Pressed' : 'Released') + ' the A button');
+    output.sendMessage([0xB0, 18, press ? 127 : 0]);
+}
+
+kb.onB = function(press) {
+    console.log((press ? 'Pressed' : 'Released') + ' the B button');
+    output.sendMessage([0xB0, 19, press ? 127 : 0]);
+}
+
 kb.onTouchOn = function(percentage) {
     console.log('Touched touch strip at ' + percentage + '%');
     if (touch.mode == 'PB')
