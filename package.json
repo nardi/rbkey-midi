@@ -20,7 +20,6 @@
   "bin": "./main.js",
   "dependencies": {
     "underscore": "1.4.4",
-    "node-hid": "~0.3.2",
     "midi": "0.7.0"
   },
   "engines": {
