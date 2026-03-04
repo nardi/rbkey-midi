@@ -19,7 +19,7 @@
   "preferGlobal": true,
   "bin": "./main.js",
   "dependencies": {
-    "underscore": "1.4.4",
+    "underscore": "1.13.8",
     "node-hid": "git://github.com/nardi/node-hid.git#crossplatform",
     "midi": "0.7.0"
   },
